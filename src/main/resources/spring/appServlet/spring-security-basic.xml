@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans
+   xmlns="http://www.springframework.org/schema/security"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:beans="http://www.springframework.org/schema/beans"
+   xmlns:sec="http://www.springframework.org/schema/security"
+   xsi:schemaLocation="
+      http://www.springframework.org/schema/security 
+      http://www.springframework.org/schema/security/spring-security.xsd
+      http://www.springframework.org/schema/beans 
+      http://www.springframework.org/schema/beans/spring-beans.xsd">
+      
+   <!-- authentication-manager>
+        <authentication-provider>
+            <user-service id="userService">
+                <user name="test" password="pass" authorities="customer" />
+                <user name="admin" password="admin" authorities="ROLE_ADMIN" />
+            </user-service>
+        </authentication-provider>
+    </authentication-manager-->
+    
+   <authentication-manager>
+	  <authentication-provider>
+		<jdbc-user-service data-source-ref="dataSource"
+		  users-by-username-query=
+		    "SELECT user_name username,USER_PWD password,true enabled FROM COM_USER_DTL WHERE user_name=?"
+		  authorities-by-username-query=
+		    "SELECT user_name username,role.ROLE_NAME role FROM COM_USER_ROLE role, COM_USER_DTL userdtl WHERE userdtl.CLIENT_ID =role.COM_USER_ID and userdtl.user_name=? " />
+	  </authentication-provider>
+	</authentication-manager>
+
+    <http create-session="stateless" use-expressions="true">
+        <intercept-url pattern="/api/**" access="hasAnyRole('ROLE_ADMIN','ROLE_STUDENT','ROLE_TEACHER')" />
+        <intercept-url pattern="/web/**" access="hasAnyRole('ROLE_ADMIN','ROLE_STUDENT','ROLE_TEACHER')" />
+        <csrf disabled="true" />
+        <http-basic />
+    </http>
+
+
+</beans:beans>

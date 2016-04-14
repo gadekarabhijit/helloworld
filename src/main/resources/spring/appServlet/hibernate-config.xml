@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans 
+    xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+    <!-- Enables the Spring MVC @Controller programming model -->
+	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<!-- beans:property name="url" value="jdbc:mysql://cims.cfaujgyn5odw.us-west-2.rds.amazonaws.com:3306/cims" /-->
+		<!-- beans:property name="url" value="jdbc:mysql://localhost:3306/zertonco_cims"/>
+		<beans:property name="username" value="zertonco_cims" />
+		<beans:property name="password" value="root@123"/-->
+		<beans:property name="url" value="jdbc:mysql://localhost:3306/cims"/>
+		<beans:property name="username" value="root" />
+		<beans:property name="password" value=""/>
+		<!--  beans:property name="password" value="root1234" /-->
+	</beans:bean>
+    
+	
+	<!-- Hibernate 4 SessionFactory Bean definition -->
+	<beans:bean id="sessionFactory" name="sessionFactory" lazy-init="false" 
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="annotatedClasses">
+			<beans:list>
+				<!-- Common Entities across application -->
+				<beans:value>com.zertones.model.ComClientAddress</beans:value>
+				<beans:value>com.zertones.model.ComUserDetails</beans:value>
+				<beans:value>com.zertones.model.ComClientName</beans:value>
+				<beans:value>com.zertones.model.DeviceDetails</beans:value>
+				<!-- beans:value>com.zertones.model.InstituteProfile</beans:value-->
+
+				<!-- Common Functionality Entities -->
+				<beans:value>com.zertones.model.common.Notification</beans:value>
+				<beans:value>com.zertones.model.common.NotificationFiles</beans:value>
+				<beans:value>com.zertones.model.common.InstituteInfoMaster</beans:value>
+				<beans:value>com.zertones.model.common.InstituteInfoDetails</beans:value>
+				<beans:value>com.zertones.model.common.MenuList</beans:value>
+				<beans:value>com.zertones.model.common.TimeTable</beans:value>
+				<beans:value>com.zertones.model.common.ExamSchedule</beans:value>
+
+				<!-- Master Entities -->
+				<beans:value>com.zertones.model.master.ComListMaster</beans:value>
+				<beans:value>com.zertones.model.master.ComListDetails</beans:value>
+				<beans:value>com.zertones.model.master.CourseMaster</beans:value>
+
+				<!-- SIMS Entities -->
+				<beans:value>com.zertones.model.sims.Student</beans:value>
+				<beans:value>com.zertones.model.sims.Staff</beans:value>
+				
+				<!-- Academic Entities -->
+				<beans:value>com.zertones.model.master.AcademicYear</beans:value>
+				<beans:value>com.zertones.model.master.AcademicSemester</beans:value>
+				<beans:value>com.zertones.model.master.AcademicTrimester</beans:value>
+				
+				<!-- Security Entities -->
+				<beans:value>com.zertones.security.model.UserRole</beans:value>
+				
+			</beans:list>
+		</beans:property>
+		<beans:property name="hibernateProperties">
+			<beans:props>
+				<beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
+				</beans:prop>
+				<!-- beans:prop key="hibernate.current_session_context_class">thread</beans:prop -->
+				<beans:prop key="hibernate.show_sql">true</beans:prop>
+				<!-- enable second level cache and query cache -->
+				<beans:prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory
+				</beans:prop>
+				<beans:prop key="hibernate.cache.use_second_level_cache">true</beans:prop>
+				<beans:prop key="hibernate.cache.use_query_cache">true</beans:prop>
+				<beans:prop key="hibernate.generate_statistics">true</beans:prop>
+				<!-- beans:prop key="net.sf.ehcache.configurationResourceName">/myehcache.xml</beans:prop -->
+				<beans:prop key="hibernate.hbm2ddl.auto">update</beans:prop>
+			</beans:props>
+		</beans:property>
+	</beans:bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<!-- Hibernate dependency injection -->
+	<beans:bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<beans:property name="sessionFactory" ref="sessionFactory" />
+	</beans:bean>
+</beans:beans>

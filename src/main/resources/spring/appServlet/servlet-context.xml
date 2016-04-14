@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans 
+    xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/static/**" location="/static/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+		in the /WEB-INF/views directory -->
+	<!-- beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<beans:property name="prefix" value="/WEB-INF/views/jsp/templates" /> <beans:property 
+		name="suffix" value=".jsp" /> <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/> 
+		</beans:bean -->
+
+	<beans:bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="viewClass">
+			<beans:value>
+				org.springframework.web.servlet.view.tiles3.TilesView
+			</beans:value>
+		</beans:property>
+		<beans:property name="exposeContextBeansAsAttributes">
+			<beans:value>true</beans:value>
+		</beans:property>
+	</beans:bean>
+
+
+	<beans:bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>/WEB-INF/views/jsp/tiles/tiles.xml</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+
+	<!-- Configure to plugin JSON as request and response in method handler -->
+	<beans:bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<beans:property name="messageConverters">
+			<beans:list>
+				<beans:ref bean="jsonMessageConverter" />
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+
+	<!-- Configure bean to convert JSON to POJO and vice versa -->
+	<beans:bean id="jsonMessageConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+	</beans:bean>
+
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- setting maximum upload size -->
+		<beans:property name="maxUploadSize" value="100000" />
+	</beans:bean>
+
+	<!-- Tiles Configuration -->
+	<!-- >beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer"> 
+		<beans:property name="definitions"> <beans:list> <beans:value>/WEB-INF/views/jsp/tiles/tiles.xml</beans:value> 
+		</beans:list> </beans:property> </beans:bean -->
+
+	<beans:bean id="listService" class="com.zertones.system.beans.DropDownList" init-method="populateMasterList" scope="application"/>
+	
+	<!-- Custom Models dependency injection -->
+	<beans:bean id="instituteInfoModel"
+		class="com.zertones.model.common.InstituteInfoModel" />
+
+	<!-- DAO dependency injection -->
+	<beans:bean id="baseDAO" class="com.zertones.dao.BaseDAOImpl"/>
+	
+	<!-- Common -->
+	<beans:bean id="notificationDAO" class="com.zertones.dao.common.NotificationDAOImpl"/>
+	<beans:bean id="deviceDAO" class="com.zertones.dao.DeviceDAOImpl"/>
+	<beans:bean id="commonDAO" class="com.zertones.dao.common.CommonDAOImpl"/>
+
+	<!-- Common -->
+	<beans:bean id="notificationService" class="com.zertones.service.common.NotificationServiceImpl"/>
+	<beans:bean id="deviceService" class="com.zertones.service.DeviceServiceImpl"/>
+	<beans:bean id="pushNotificationService" class="com.zertones.service.common.PushNotificationServiceImpl">
+		<beans:property name="deviceService" ref="deviceService"></beans:property>
+	</beans:bean>
+	<beans:bean id="commonValidationService" class="com.zertones.service.CommonValidationServiceImpl" scope="singleton"/>
+	<beans:bean id="commonService" class="com.zertones.service.common.CommonServiceImpl" scope="singleton"/>
+	
+	<!-- SIMS -->
+	<beans:bean id="studentDAO" class="com.zertones.dao.sims.StudentDAOImpl"/>
+	<beans:bean id="staffDAO" class="com.zertones.dao.sims.StaffDAOImpl"/>
+	<beans:bean id="studentService" class="com.zertones.service.sims.StudentServiceImpl"/>
+	<beans:bean id="staffService" class="com.zertones.service.sims.StaffServiceImpl"/>
+	
+	<!-- System -->
+	<beans:bean id="systemService" class="com.zertones.system.service.SystemServiceImpl" lazy-init="false" />
+	<beans:bean id="systemDAO" class="com.zertones.system.dao.SystemDAOImpl" lazy-init="false" />
+	
+	<!-- Security -->
+	
+	<!-- Property file injection -->
+	<beans:bean id="application" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<beans:property name="location" value="classpath:application.properties" />
+	</beans:bean>
+	<beans:bean id="userDetailsDAO" class="com.zertones.dao.UserDetailsDAOImpl"/>
+	<beans:bean id="userDetailsService" class="com.zertones.service.UserDetailsServiceImpl"/>
+
+</beans:beans>
