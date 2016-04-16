@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+  <definition name="myapp.homepage" template="/WEB-INF/views/jsp/layouts/main.jsp">
+    <put-attribute name="title" value="Institute" />
+    <put-attribute name="header" type="template" value="/WEB-INF/views/jsp/templates/header.jsp" />
+    <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/templates/menu.jsp" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/templates/welcome.jsp" />
+    <put-attribute name="footer" type="template" value="/WEB-INF/views/jsp/templates/footer.jsp" />
+  </definition>
+  
+  <definition name="admin.homepage" template="/WEB-INF/views/jsp/layouts/main.jsp">
+    <put-attribute name="title" value="Home" />
+    <put-attribute name="header" type="template" value="/WEB-INF/views/jsp/templates/header.jsp" />
+    <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/templates/adminmenu.jsp" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/administration/index.jsp" />
+    <put-attribute name="footer" type="template" value="/WEB-INF/views/jsp/templates/footer.jsp" />
+  </definition>
+  
+  <definition name="admin.masterlist" template="/WEB-INF/views/jsp/layouts/main.jsp">
+    <put-attribute name="title" value="Master" />
+    <put-attribute name="header" type="template" value="/WEB-INF/views/jsp/templates/header.jsp" />
+    <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/templates/adminmenu.jsp" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/administration/masterlist.jsp" />
+    <put-attribute name="footer" type="template" value="/WEB-INF/views/jsp/templates/footer.jsp" />
+  </definition>
+  
+  <!-- Master Form -->
+  <definition name="admin.masterForm" template="/WEB-INF/views/jsp/layouts/popup.jsp">
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/administration/masterform.jsp" />
+  </definition>
+  
+  <!-- Master Details Form -->
+  <definition name="admin.masterDetailsForm" template="/WEB-INF/views/jsp/layouts/popup.jsp">
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/administration/masterdetailsform.jsp" />
+  </definition>
+  
+  <!-- Master Details Tab -->
+   <definition name="admin.masterDetails" template="/WEB-INF/views/jsp/layouts/tab.jsp">
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/administration/masterdetails.jsp" />
+  </definition>
+  
+   <!-- Notification List -->
+   <definition name="admin.noticelist" template="/WEB-INF/views/jsp/layouts/main.jsp">
+    <put-attribute name="title" value="Notice" />
+    <put-attribute name="header" type="template" value="/WEB-INF/views/jsp/templates/header.jsp" />
+    <put-attribute name="menu" type="template" value="/WEB-INF/views/jsp/templates/adminmenu.jsp" />
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/administration/noticelist.jsp" />
+    <put-attribute name="footer" type="template" value="/WEB-INF/views/jsp/templates/footer.jsp" />
+  </definition>
+  
+    <!-- Notification Details Tab -->
+   <definition name="admin.noticeForm" template="/WEB-INF/views/jsp/layouts/tab.jsp">
+    <put-attribute name="body" type="template" value="/WEB-INF/views/jsp/administration/noticeform.jsp" />
+  </definition>
+   
+</tiles-definitions>

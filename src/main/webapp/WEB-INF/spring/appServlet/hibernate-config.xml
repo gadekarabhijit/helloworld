@@ -27,38 +27,18 @@
 		<beans:property name="dataSource" ref="dataSource" />
 		<beans:property name="annotatedClasses">
 			<beans:list>
-				<!-- Common Entities across application -->
-				<beans:value>com.zertones.model.ComClientAddress</beans:value>
-				<beans:value>com.zertones.model.ComUserDetails</beans:value>
-				<beans:value>com.zertones.model.ComClientName</beans:value>
-				<beans:value>com.zertones.model.DeviceDetails</beans:value>
-				<!-- beans:value>com.zertones.model.InstituteProfile</beans:value-->
-
-				<!-- Common Functionality Entities -->
-				<beans:value>com.zertones.model.common.Notification</beans:value>
-				<beans:value>com.zertones.model.common.NotificationFiles</beans:value>
-				<beans:value>com.zertones.model.common.InstituteInfoMaster</beans:value>
-				<beans:value>com.zertones.model.common.InstituteInfoDetails</beans:value>
-				<beans:value>com.zertones.model.common.MenuList</beans:value>
-				<beans:value>com.zertones.model.common.TimeTable</beans:value>
-				<beans:value>com.zertones.model.common.ExamSchedule</beans:value>
-
-				<!-- Master Entities -->
-				<beans:value>com.zertones.model.master.ComListMaster</beans:value>
-				<beans:value>com.zertones.model.master.ComListDetails</beans:value>
-				<beans:value>com.zertones.model.master.CourseMaster</beans:value>
-
-				<!-- SIMS Entities -->
-				<beans:value>com.zertones.model.sims.Student</beans:value>
-				<beans:value>com.zertones.model.sims.Staff</beans:value>
-				
-				<!-- Academic Entities -->
-				<beans:value>com.zertones.model.master.AcademicYear</beans:value>
-				<beans:value>com.zertones.model.master.AcademicSemester</beans:value>
-				<beans:value>com.zertones.model.master.AcademicTrimester</beans:value>
-				
-				<!-- Security Entities -->
-				<beans:value>com.zertones.security.model.UserRole</beans:value>
+				<!--Core -->
+				<beans:value>com.dreamland.core.model.ComClientAddress</beans:value>
+				<beans:value>com.dreamland.core.model.ComUserDetails</beans:value>
+				<beans:value>com.dreamland.core.model.ComClientName</beans:value>
+				<beans:value>com.dreamland.core.model.DeviceDetails</beans:value>
+				<beans:value>com.dreamland.core.model.Notification</beans:value>
+				<beans:value>com.dreamland.core.model.NotificationFiles</beans:value>
+				<beans:value>com.dreamland.core.model.ComListMaster</beans:value>
+				<beans:value>com.dreamland.core.model.ComListDetails</beans:value>
+				<beans:value>com.dreamland.core.model.ComListMaster</beans:value>
+				<beans:value>com.dreamland.core.model.ComListDetails</beans:value>
+				<beans:value>com.dreamland.core.model.UserRole</beans:value>
 				
 			</beans:list>
 		</beans:property>

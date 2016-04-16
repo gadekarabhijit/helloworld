@@ -84,22 +84,6 @@ public class ComListDetails extends BaseModel implements java.io.Serializable
 	@Column(name = "DOCUMENT2_TYPE", length = 1)
 	private Integer document2Type;
 
-	/*
-	 * @Column(name = "CREATED_DT")
-	 *
-	 * @Temporal(TemporalType.TIMESTAMP) private Date createdDate = new Date();
-	 *
-	 * @Column(name = "CREATED_BY") private String createdBy;
-	 *
-	 * @Column(name = "UPDATED_DT")
-	 *
-	 * @Temporal(TemporalType.TIMESTAMP) private Date updatedDate;
-	 *
-	 * @Column(name = "UPDATED_BY") private String updatedBy;
-	 *
-	 * @Column(name = "RECORD_STATUS") private String recordStatus = "A";
-	 */
-
 	public Integer getListDtlId()
 	{
 		return listDtlId;
@@ -129,40 +113,6 @@ public class ComListDetails extends BaseModel implements java.io.Serializable
 	{
 		this.description = description;
 	}
-
-	/*
-	 * public ComListMaster getComListMaster() { return
-	 * comListMaster; }
-	 *
-	 * public void setComListMaster(ComListMaster comListMaster) {
-	 * this.comListMaster = comListMaster; }
-	 */
-
-	/*
-	 * @Override public Date getCreatedDate() { return createdDate; }
-	 *
-	 * public void setCreatedDate() { this.createdDate = new Date(); }
-	 *
-	 * @Override public String getCreatedBy() { return createdBy; }
-	 *
-	 * @Override public void setCreatedBy(String createdBy) { this.createdBy =
-	 * createdBy; }
-	 *
-	 * @Override public Date getUpdatedDate() { return updatedDate; }
-	 *
-	 * @Override public void setUpdatedDate(Date updatedDate) { this.updatedDate
-	 * = updatedDate; }
-	 *
-	 * @Override public String getUpdatedBy() { return updatedBy; }
-	 *
-	 * @Override public void setUpdatedBy(String updatedBy) { this.updatedBy =
-	 * updatedBy; }
-	 *
-	 * @Override public String getRecordStatus() { return recordStatus; }
-	 *
-	 * @Override public void setRecordStatus(String recordStatus) {
-	 * this.recordStatus = recordStatus; }
-	 */
 
 	public ComListMaster getInstituteInfotMaster()
 	{

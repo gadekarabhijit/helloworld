@@ -19,7 +19,7 @@
 		<tiles.version>3.0.1</tiles.version>
 		<org.springframework-security>4.0.0.RELEASE</org.springframework-security>
 	</properties>
-  <dependencies>
+  <!-- dependencies-->
 		<!-- dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -43,6 +43,8 @@
 		<start-class>com.programmingfree.springservice.Application</start-class>
 		<java.version>1.8</java.version>
 	</properties-->
+		<!-- Jackson -->
+		<dependencies>
 		<!-- Jackson -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -143,7 +145,7 @@
 			<version>1</version>
 		</dependency>
 
-		<!-- Servlet -->
+		<!-- Servlet>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -160,7 +162,7 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
-		</dependency>
+		</dependency-->
 
 		<!-- database pool -->
 		<dependency>
@@ -349,5 +351,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
+
 	</build>
 </project>

@@ -53,7 +53,7 @@ public class ComListMaster extends BaseModel implements java.io.Serializable
 	// @JsonBackReference
 	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 	// @JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "instituteInfotMaster", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "comListMaster", cascade = CascadeType.ALL)
 	private Set<ComListDetails> comListDetails = new HashSet<ComListDetails>();
 
 	/*
