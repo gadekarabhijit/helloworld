@@ -73,7 +73,6 @@ public class Notification extends BaseModel implements java.io.Serializable
 
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "notification")
-	// @JsonIgnore
 	private Set<NotificationFiles> notificationFiles = new HashSet<NotificationFiles>();
 
 	public Integer getNotificationId()

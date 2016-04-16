@@ -1,5 +1,8 @@
 package com.dreamland.core.dao;
 
-public class BaseDAO {
+import org.hibernate.SessionFactory;
 
+public interface BaseDAO
+{
+	public void setSessionFactory(SessionFactory sf);
 }
