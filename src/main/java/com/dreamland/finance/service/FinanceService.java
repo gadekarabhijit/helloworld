@@ -1,5 +1,7 @@
 package com.dreamland.finance.service;
 
-public class FinanceService {
+import com.dreamland.core.service.BaseService;
+
+public class FinanceService extends BaseService{
 
 }

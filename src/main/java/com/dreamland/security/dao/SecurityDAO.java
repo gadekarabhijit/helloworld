@@ -1,5 +1,7 @@
 package com.dreamland.security.dao;
 
-public class SecurityDAO {
+import com.dreamland.core.dao.BaseDAO;
+
+public class SecurityDAO extends BaseDAO {
 
 }

@@ -1,5 +1,7 @@
 package com.dreamland.medistore.medicineadministration.model;
 
-public class MASModel {
+import com.dreamland.core.model.BaseModel;
+
+public class MASModel extends BaseModel{
 
 }

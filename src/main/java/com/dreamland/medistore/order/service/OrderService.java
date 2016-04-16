@@ -1,5 +1,7 @@
 package com.dreamland.medistore.order.service;
 
-public class OrderService {
+import com.dreamland.core.service.BaseService;
+
+public class OrderService extends BaseService{
 
 }

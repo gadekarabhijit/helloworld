@@ -1,5 +1,7 @@
 package com.dreamland.finance.controller;
 
-public class FinanceController {
+import com.dreamland.core.controller.BaseController;
+
+public class FinanceController extends BaseController{
 
 }

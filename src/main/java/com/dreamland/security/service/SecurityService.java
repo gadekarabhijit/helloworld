@@ -1,5 +1,7 @@
 package com.dreamland.security.service;
 
-public class SecurityService {
+import com.dreamland.core.service.BaseService;
+
+public class SecurityService extends BaseService{
 
 }

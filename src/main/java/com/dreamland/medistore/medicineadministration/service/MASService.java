@@ -1,5 +1,7 @@
 package com.dreamland.medistore.medicineadministration.service;
 
-public class MASService {
+import com.dreamland.core.service.BaseService;
+
+public class MASService extends BaseService{
 
 }

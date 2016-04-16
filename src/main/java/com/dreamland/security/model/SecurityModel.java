@@ -1,5 +1,7 @@
 package com.dreamland.security.model;
 
-public class SecurityModel {
+import com.dreamland.core.model.BaseModel;
+
+public class SecurityModel extends BaseModel{
 
 }

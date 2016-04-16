@@ -1,5 +1,7 @@
 package com.dreamland.shipment.service;
 
-public class ShipmentService {
+import com.dreamland.core.service.BaseService;
+
+public class ShipmentService extends BaseService{
 
 }

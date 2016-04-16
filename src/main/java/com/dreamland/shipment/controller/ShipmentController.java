@@ -1,5 +1,7 @@
 package com.dreamland.shipment.controller;
 
-public class ShipmentController {
+import com.dreamland.core.controller.BaseController;
+
+public class ShipmentController extends BaseController{
 
 }

@@ -1,5 +1,7 @@
 package com.dreamland.medistore.medicineadministration.controller;
 
-public class MASController {
+import com.dreamland.core.controller.BaseController;
+
+public class MASController extends BaseController{
 
 }

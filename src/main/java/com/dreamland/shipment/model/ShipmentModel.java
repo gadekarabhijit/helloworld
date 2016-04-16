@@ -1,5 +1,7 @@
 package com.dreamland.shipment.model;
 
-public class ShipmentModel {
+import com.dreamland.core.model.BaseModel;
+
+public class ShipmentModel extends BaseModel{
 
 }

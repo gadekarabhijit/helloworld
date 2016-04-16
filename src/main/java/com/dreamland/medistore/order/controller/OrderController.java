@@ -1,5 +1,7 @@
 package com.dreamland.medistore.order.controller;
 
-public class OrderController {
+import com.dreamland.core.controller.BaseController;
+
+public class OrderController extends BaseController{
 
 }

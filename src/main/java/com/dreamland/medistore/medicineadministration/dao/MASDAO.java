@@ -1,5 +1,7 @@
 package com.dreamland.medistore.medicineadministration.dao;
 
-public class MASDAO {
+import com.dreamland.core.dao.BaseDAO;
+
+public class MASDAO extends BaseDAO {
 
 }

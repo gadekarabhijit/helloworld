@@ -1,5 +1,7 @@
 package com.dreamland.security.controller;
 
-public class SecurityController {
+import com.dreamland.core.controller.BaseController;
+
+public class SecurityController extends BaseController{
 
 }

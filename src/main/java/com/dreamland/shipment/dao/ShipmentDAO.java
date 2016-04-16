@@ -1,5 +1,7 @@
 package com.dreamland.shipment.dao;
 
-public class ShipmentDAO {
+import com.dreamland.core.dao.BaseDAO;
+
+public class ShipmentDAO extends BaseDAO {
 
 }

@@ -1,5 +1,7 @@
 package com.dreamland.medistore.order.dao;
 
-public class OrderDAO {
+import com.dreamland.core.dao.BaseDAO;
+
+public class OrderDAO extends BaseDAO {
 
 }

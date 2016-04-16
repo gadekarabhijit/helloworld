@@ -1,5 +1,7 @@
 package com.dreamland.billing.model;
 
-public class BillingModel {
+import com.dreamland.core.model.BaseModel;
+
+public class BillingModel extends BaseModel{
 
 }
